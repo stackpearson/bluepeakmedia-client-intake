@@ -25,7 +25,7 @@ const Info = (props) => {
             <ul>
                 <li><strong>Match Example:</strong> We'll match the appearance of the image as closely as possible</li>
                 <li><strong>Similar to Example:</strong> We'll use the example image for inspiration, but may deviate and use our own judgement as needed</li>
-                <li><strong>Photogs Choice</strong> We'll take full creative control and use our best judgement to create an image that is competitive and compelling</li>
+                <li><strong>Photogs Choice:</strong> We'll take full creative control and use our best judgement to create an image that is competitive and compelling</li>
             </ul>
 
             <h4>Avoiding <span className='bpm_callout_text'>Reshoots</span></h4>
