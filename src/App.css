@@ -81,6 +81,11 @@ html {
 	max-height: 100%;
 	width: auto;
 	margin: 0 auto;
+	padding: 5px;
+}
+
+.nav_links {
+	margin-left: 10px;
 }
 
 .nav_links a {
@@ -120,4 +125,22 @@ html {
     justify-content: center;
     align-items: center;
     height:40vh;
+}
+
+/* shoot details */
+
+.shoot_details {
+	max-width: 900px;
+	padding: 10px;
+	margin: 0 auto;
+}
+
+.client_info {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	max-width: 600px;
+	margin: 0 auto;
+	/* border-bottom: 1px solid black; */
+	margin-bottom: 10px;
 }

@@ -8,7 +8,7 @@ const Info = (props) => {
     let history = useHistory();
 
     const toName = () => {
-        history.push('/name')
+        history.push('/shoot-details')
     }
     
     return (<>
@@ -35,7 +35,7 @@ const Info = (props) => {
             <p>If everything looks good, let us know and we'll email over your personalized booking link so we can get the ball rolling on your shoot. <strong>Once your payment and contract has been received, you will be added to the next available position within our project queue.</strong> <strong className='bpm_warning_text'>IMPORTANT: Signing of your contract also signifies a sign off of the shotlist.</strong></p>
 
             <div className='info_button'>
-                <Button onClick={toName}>Get Started</Button>
+                <Button color='primary' onClick={toName}>Get Started</Button>
             </div>
         </div>
         

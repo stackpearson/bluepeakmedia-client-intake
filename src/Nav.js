@@ -15,7 +15,6 @@ function Nav(props) {
                 </div>
                 <div className='nav_links'>
                     <Link to='/'>Instructions</Link>
-                    <Link to='/name'>Your Details</Link>
                     <Link to='/shoot-details'>Shoot Details</Link>
                 </div>
             </div>

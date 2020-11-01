@@ -1,20 +1,35 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Col, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
 const ShootForm = (props) => {
+
+    const [clientDetails, setClientDetails] = useState({
+        client_name: '',
+        product_name: ''
+    });
+
+    const handleChanges = (e) => {
+        e.persist();
+        const newClientDetails = {
+            ...clientDetails,
+            [e.target.name]: e.target.value
+        }
+        setClientDetails(newClientDetails)
+    }
+
   return (
       <div>
         <Form>
             <FormGroup row>
-            <Label for="exampleEmail" sm={2}>Email</Label>
+            {/* <Label for="exampleEmail" sm={2}>Email</Label> */}
             <Col sm={10}>
-                <Input type="email" name="email" id="exampleEmail" placeholder="with a placeholder" />
+                <Input type="text" name='client_name' id="clientName" placeholder="Your Name" />
             </Col>
             </FormGroup>
             <FormGroup row>
-            <Label for="examplePassword" sm={2}>Password</Label>
+            {/* <Label for="examplePassword" sm={2}>Password</Label> */}
             <Col sm={10}>
-                <Input type="password" name="password" id="examplePassword" placeholder="password placeholder" />
+                <Input type="text" name="product_name" id="productName" placeholder="Name Of Your Product" />
             </Col>
             </FormGroup>
 
