@@ -58,27 +58,50 @@ html {
 	background-color: #9B9B9B;
 }
 
+/* Nav */
+
 .nav_bar {
   background-color: #191D24;
   height: 75px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-.nav_header {
+.nav_container {
   color: white;
+  display:flex;
+  justify-content: flex-start;
 }
 
-.nav_header, h1 {
-  font-size: 1.5em;
-  font-weight: 700;
+.logo_container {
+	height: 75px;
 }
 
+.logo_img {
+	display: block;
+	max-height: 100%;
+	width: auto;
+	margin: 0 auto;
+}
+
+
+/* info & disclaimer */
+.bpm_callout_text {
+	color: #1E84CA;
+}
+
+.info_container {
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+.bpm_warning_text {
+	color: red;
+}
 /* client info form */
 
 .clientInfo_form {
-	width: 750px;
 	margin: 0 auto;
-	border: 1px solid black;
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    height:40vh;
 }
