@@ -133,6 +133,18 @@ html {
 	max-width: 900px;
 	padding: 10px;
 	margin: 0 auto;
+
+}
+
+.shoot_details-button {
+	margin-top: 20px;
+	display: flex;
+	justify-content: center;
+}
+
+.shoot_details-button button {
+	margin: 10px;
+	width: 95px;
 }
 
 .client_info {
@@ -144,7 +156,7 @@ html {
 	margin-bottom: 10px;
 }
 
-/* shoot form */
+/* shot form */
 
 .shot_detail-form {
 	max-width: 900px;
@@ -152,4 +164,27 @@ html {
 	border: 1px solid black;
 	border-radius: 10px;
 	box-shadow: 5px 10px #191D24;
+}
+
+.shot_detail-formFlex {
+	display: flex;
+}
+
+
+.shot_detail-formText {
+	width: 70%;
+	margin: 15px;
+}
+
+.shot_detail-formFile {
+	width: 30%;
+	
+}
+
+.shot_detail-exampleImg {
+	display: block;
+	max-height: 100%;
+	width: auto;
+	margin: 0 auto;
+	padding: 5px;
 }

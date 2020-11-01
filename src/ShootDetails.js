@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import ShootForm from './ShootForm';
+import ShotForm from './ShotForm';
 import {connect} from 'react-redux';
-import { Col, Button, Form, FormGroup, Label, Input, Row, FormText } from 'reactstrap';
+import { Col, Button, Form, FormGroup, Input, Row } from 'reactstrap';
 import {addClient} from './actions/clientActions'
 
 
@@ -46,10 +46,14 @@ const ShootDetails = (props) => {
                 {
                     props.shotOnProps.shots.map(shot => {
                         return (
-                            <ShootForm key={shot.pictureId} pictureId={shot.pictureId} />
+                            <ShotForm key={shot.pictureId} pictureId={shot.pictureId} />
                         )
                     })
                 }
+            </div>
+            <div className='shoot_details-button'>
+                <Button>Add Shot</Button>
+                <Button color='success'>Submit</Button>
             </div>
         </div>
   </>);
