@@ -1,47 +1,40 @@
 import React, {useState} from 'react';
 import { Col, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import {connect} from 'react-redux';
 
 const ShootForm = (props) => {
 
-    const [clientDetails, setClientDetails] = useState({
-        client_name: '',
-        product_name: ''
+    const [shotDetails, setShotDetails] = useState({
+        pictureId: props.pictureId,
+        shot_description: '',
+        shot_notes: ''
     });
 
     const handleChanges = (e) => {
         e.persist();
-        const newClientDetails = {
-            ...clientDetails,
+        const newShotDetails = {
+            ...shotDetails,
             [e.target.name]: e.target.value
         }
-        setClientDetails(newClientDetails)
+        setShotDetails(newShotDetails)
     }
 
   return (
-      <div>
+      <div className='shot_detail-form'>
         <Form>
-            <FormGroup row>
-            {/* <Label for="exampleEmail" sm={2}>Email</Label> */}
+            <FormGroup>
+                <p>Picture {props.pictureId}</p>
             <Col sm={10}>
-                <Input type="text" name='client_name' id="clientName" placeholder="Your Name" />
-            </Col>
-            </FormGroup>
-            <FormGroup row>
-            {/* <Label for="examplePassword" sm={2}>Password</Label> */}
-            <Col sm={10}>
-                <Input type="text" name="product_name" id="productName" placeholder="Name Of Your Product" />
+                <Input onChange={handleChanges} type="textarea" name="shot_description" id="shotDescription" placeholder='Enter a description of this shot here' />
             </Col>
             </FormGroup>
 
-
-            <FormGroup row>
-            <Label for="exampleText" sm={2}>Text Area</Label>
+            <FormGroup>
             <Col sm={10}>
-                <Input type="textarea" name="text" id="exampleText" />
+                <Input onChange={handleChanges} type="textarea" name="shot_notes" id="shotNotes" placeholder='Enter any relavent notes for this shot here' />
             </Col>
             </FormGroup>
             <FormGroup row>
-            <Label for="exampleFile" sm={2}>File</Label>
             <Col sm={10}>
                 <Input type="file" name="file" id="exampleFile" />
                 <FormText color="muted">
@@ -61,4 +54,14 @@ const ShootForm = (props) => {
   );
 }
 
-export default ShootForm;
+const mapStateToProps = state => {
+    return {
+        shotOnProps: state.shotReducer
+        
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    {}
+)(ShootForm)

@@ -1,5 +1,11 @@
 export const initialState = {
-    shots: []
+    shots: [
+        {
+            pictureId: 1,
+            description: 'a description',
+            notes: 'notes'
+        }
+    ]
 }
 
 export const shotReducer = (state = initialState, action) => {

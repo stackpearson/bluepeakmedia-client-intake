@@ -29,13 +29,13 @@ const ShootDetails = (props) => {
                     <Row form>
                         <Col md={6}>
                             <FormGroup>
-                            <Input onChange={handleChanges} type="text" name="client_name" id="clientName" placeholder="Your Name" />
+                            <Input onChange={handleChanges} type="text" name="client_name" id="clientName" placeholder="Your Name"  value={props.clientOnProps.client.client_name}/>
                             </FormGroup>
                         </Col>
 
                         <Col md={6}>
                             <FormGroup>
-                            <Input onChange={handleChanges} type="text" name="product_name" id="productName" placeholder="Product Name" />
+                            <Input onChange={handleChanges} type="text" name="product_name" id="productName" placeholder="Product Name" value={props.clientOnProps.client.product_name} />
                             </FormGroup>
                         </Col>
                     </Row>
@@ -43,7 +43,13 @@ const ShootDetails = (props) => {
             </div>
 
             <div className='shoot_form-container'> 
-                <ShootForm />
+                {
+                    props.shotOnProps.shots.map(shot => {
+                        return (
+                            <ShootForm key={shot.pictureId} pictureId={shot.pictureId} />
+                        )
+                    })
+                }
             </div>
         </div>
   </>);
