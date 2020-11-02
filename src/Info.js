@@ -31,7 +31,7 @@ const Info = (props) => {
             <h2>Avoiding <span className='bpm_callout_text'>Reshoots</span></h2>
             <p>We want to avoid reshoots just as much as you do. However, we are available to reshoot your product free of charge <em>if</em> the images weren't delivered to the expectations in the shot list. If the delivered images align with the agreed upon criteria in the shot list, a re shoot will incur additional costs. 1 round of photoshop corrections is included free of charge with all images. Extensive editing or retouching may incur additional cost depending on the specifics of the situation.</p>
 
-            <h2><span className='bpm_callout_text bpm_underline'>Does everything look correct?</span></h2>
+            <h2><span className='bpm_callout_text'>Does everything look correct?</span></h2>
             <p>If everything looks good, let us know and we'll email over your personalized booking link so we can get the ball rolling on your shoot. <span className='bpm_strong'>Once your payment and contract has been received, you will be added to the next available position within our project queue.</span> <span className='bpm_strong bpm_warning_text'>IMPORTANT: Signing of your contract also signifies a sign off of the shotlist.</span></p>
 
             <div className='info_button'>
