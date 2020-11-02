@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from 'react';
-import { Col, Row, Button, Form, FormGroup, Input } from 'reactstrap';
+import React, {useState,} from 'react';
+import { Col, Row, Button, Form, FormGroup, Input,Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import {connect} from 'react-redux';
 import Front from './img/front.png';
 import {removeShot} from './actions/shotActions';
@@ -7,9 +7,9 @@ import {updateId} from './actions/shotActions';
 
 const ShotForm = (props) => {
 
-    useEffect(() => {
-        
-    })
+    const [dropdownOpen, setDropdownOpen] = useState(false);
+
+    const toggle = () => setDropdownOpen(prevState => !prevState);
 
     const [shotImage, setShotImage] = useState({
         img_preview: Front,
@@ -56,8 +56,18 @@ const ShotForm = (props) => {
                     <p>Picture {props.pictureId}</p>
                 </div>
                 <div>
-                {/* ; updateImgId(); */}
-                    <span onClick={() => {props.removeShot(props.pictureId); updateImgId();}}>X</span>
+                    { props.pictureId > 1 ? (
+                        <span onClick={() => {props.removeShot(props.pictureId); updateImgId();}}>X</span>
+                    ) :
+
+                    (
+                        <></>
+                    )
+                    
+                    
+
+                    }
+                    
                 </div>
             </div>
             
@@ -83,16 +93,22 @@ const ShotForm = (props) => {
                             <Input onChange={handleChanges} type="textarea" name="shot_notes" placeholder='Notes: Anything else you would like to convey to us' />
                         </Row>
                     </FormGroup>
+                    <FormGroup>
+                        <Row>
+                        <Dropdown isOpen={dropdownOpen} toggle={toggle}>
+                            <DropdownToggle caret>
+                                Image Appearances
+                            </DropdownToggle>
+                            <DropdownMenu>
+                                <DropdownItem>Match Example</DropdownItem>
+                                <DropdownItem>Similar to Example</DropdownItem>
+                                <DropdownItem>Photogs Choice:</DropdownItem>
+                            </DropdownMenu>
+                        </Dropdown>
+                        </Row>
+                    </FormGroup>
                 </div>
             </div>
-            {/* <div className='shot_detail-formButton'>
-                <FormGroup check row>
-                    <Col sm={{ size: 10,  }}>
-                        <Button color='success'>Add Shot</Button>
-                    </Col>
-                </FormGroup>
-            </div> */}
- 
         </Form>
     </div>
   );
