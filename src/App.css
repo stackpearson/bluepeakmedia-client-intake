@@ -120,10 +120,20 @@ html {
 
 .info_container h2 {
 	font-size: 1.5rem;
+	line-height: 1.5rem;
 }
 
 .info_container p {
 	font-size: 1rem;
+}
+
+.bpm_strong {
+	font-weight: 700;
+}
+
+.bpm_underline {
+	border-bottom: 2px solid black;
+	padding-bottom:2px;
 }
 
 /* client info form */
