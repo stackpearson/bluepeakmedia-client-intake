@@ -1,9 +1,15 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { Col, Row, Button, Form, FormGroup, Input } from 'reactstrap';
 import {connect} from 'react-redux';
 import Front from './img/front.png';
+import {removeShot} from './actions/shotActions';
+import {updateId} from './actions/shotActions';
 
 const ShotForm = (props) => {
+
+    useEffect(() => {
+        
+    })
 
     const [shotImage, setShotImage] = useState({
         img_preview: Front,
@@ -11,10 +17,18 @@ const ShotForm = (props) => {
     })
 
     const [shotDetails, setShotDetails] = useState({
-        pictureId: props.pictureId,
-        shot_description: '',
-        shot_notes: ''
+        pictureId: null,
+        shot_description: null,
+        shot_notes: null
     });
+
+    const updateImgId = ()  => {
+        let Ids = {
+            initialIdx: props.initialId - 1,
+            currentId: props.pictureId
+        }
+        props.updateId(Ids)
+    }
 
     const handleChanges = (e) => {
         e.persist();
@@ -37,7 +51,16 @@ const ShotForm = (props) => {
       <div className='shot_detail-form'>
           
         <Form>
-            <p>Picture {props.pictureId}</p>
+            <div className='shot_detail-header'>
+                <div>
+                    <p>Picture {props.pictureId}</p>
+                </div>
+                <div>
+                {/* ; updateImgId(); */}
+                    <span onClick={() => {props.removeShot(props.pictureId); updateImgId();}}>X</span>
+                </div>
+            </div>
+            
             <div className='shot_detail-formFlex'>
                 <div className='shot_detail-formFile'>
                     <FormGroup row>
@@ -84,5 +107,5 @@ const mapStateToProps = state => {
 
 export default connect(
     mapStateToProps,
-    {}
+    {removeShot, updateId}
 )(ShotForm)

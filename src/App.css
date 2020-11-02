@@ -164,6 +164,7 @@ html {
 	border: 1px solid black;
 	border-radius: 10px;
 	box-shadow: 5px 10px #191D24;
+	margin: 15px;
 }
 
 .shot_detail-formFlex {
@@ -187,4 +188,9 @@ html {
 	width: auto;
 	margin: 0 auto;
 	padding: 5px;
+}
+
+.shot_detail-header {
+	display:flex;
+	justify-content: space-between;
 }

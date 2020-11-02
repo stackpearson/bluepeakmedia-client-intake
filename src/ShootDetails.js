@@ -2,7 +2,8 @@ import React, {useState} from 'react';
 import ShotForm from './ShotForm';
 import {connect} from 'react-redux';
 import { Col, Button, Form, FormGroup, Input, Row } from 'reactstrap';
-import {addClient} from './actions/clientActions'
+import {addClient} from './actions/clientActions';
+import {addShot} from './actions/shotActions';
 
 
 const ShootDetails = (props) => {
@@ -11,6 +12,12 @@ const ShootDetails = (props) => {
         client_name: '',
         product_name: ''
     });
+
+    const newShot = {
+        pictureId: (props.shotOnProps.shots.length) + 1,
+        description: null,
+        notes: null
+    }
 
     const handleChanges = (e) => {
         e.persist();
@@ -37,6 +44,7 @@ const ShootDetails = (props) => {
                             <FormGroup>
                             <Input onChange={handleChanges} type="text" name="product_name" id="productName" placeholder="Product Name" value={props.clientOnProps.client.product_name} />
                             </FormGroup>
+
                         </Col>
                     </Row>
                 </Form>
@@ -44,15 +52,15 @@ const ShootDetails = (props) => {
 
             <div className='shoot_form-container'> 
                 {
-                    props.shotOnProps.shots.map(shot => {
+                    props.shotOnProps.shots.map((shot, index) => {
                         return (
-                            <ShotForm key={shot.pictureId} pictureId={shot.pictureId} />
+                            <ShotForm pictureId={index+1} key={`shot-${index+1}`} initialId={shot.pictureId} />
                         )
                     })
                 }
             </div>
             <div className='shoot_details-button'>
-                <Button>Add Shot</Button>
+                <Button onClick={() => {props.addShot(newShot)}}>Add Shot</Button>
                 <Button color='success'>Submit</Button>
             </div>
         </div>
@@ -69,5 +77,5 @@ const mapStateToProps = state => {
 
 export default connect(
     mapStateToProps,
-    {addClient}
+    {addClient, addShot}
 )(ShootDetails)
