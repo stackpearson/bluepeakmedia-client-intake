@@ -1,7 +1,7 @@
 import React, {useState,} from 'react';
 import { Col, Row, Button, Form, FormGroup, Input,Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import {connect} from 'react-redux';
-import Front from './img/front.png';
+import Front from './front.png';
 import {removeShot} from './actions/shotActions';
 import {updateId} from './actions/shotActions';
 
@@ -58,16 +58,7 @@ const ShotForm = (props) => {
                 <div>
                     { props.pictureId > 1 ? (
                         <span onClick={() => {props.removeShot(props.pictureId); updateImgId();}}>X</span>
-                    ) :
-
-                    (
-                        <></>
-                    )
-                    
-                    
-
-                    }
-                    
+                    ) : (<></>)}
                 </div>
             </div>
             
@@ -102,7 +93,7 @@ const ShotForm = (props) => {
                             <DropdownMenu>
                                 <DropdownItem>Match Example</DropdownItem>
                                 <DropdownItem>Similar to Example</DropdownItem>
-                                <DropdownItem>Photogs Choice:</DropdownItem>
+                                <DropdownItem>Photogs Choice</DropdownItem>
                             </DropdownMenu>
                         </Dropdown>
                         </Row>
